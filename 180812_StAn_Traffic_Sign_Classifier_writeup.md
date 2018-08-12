@@ -44,6 +44,10 @@ Everything has been programmed in Python 3 using Tensorflow.
 [image16]: docu_images/03_10_Plot_5.png
 [image17]: docu_images/03_11_Image_6.png
 [image18]: docu_images/03_12_Plot_6.png
+[image19]: docu_images/04_01_Stop.png
+[image20]: docu_images/04_02_Layer_1.png
+[image21]: docu_images/04_03_Layer_2.png
+[image22]: docu_images/04_04_Layer_3.png
 
 ---
 
@@ -122,7 +126,7 @@ The third convolutional layer again uses a filter size of 5 and transforms most 
 
 The following three fully connected layers transform the features into class probabilities by continuously reducing the dimensions from 4608 to 800 to 84 and finally 43 - one class for each traffic sign label.
 
-Each layer of the convolutional neural network `LeNet_adjusted3` uses RELU units followed by dropout except the last fully connected layer.
+Each layer of the convolutional neural network `LeNet_adjusted3` uses *RELU* units followed by *dropout* except the last fully connected layer.
 
 The model pipeline uses the `AdamOptimizer` from Tensorflow for training. The loss function is based on `reduce_mean` from Tensorflow using `softmax_cross_entropy_with_logits`. To further avoid overfitting, the weight matrices of the first and second convolutional layer get regularized using `l2_loss`.
 
@@ -130,7 +134,7 @@ The model accuracy is evaluated by calculating the average difference between th
 
 ### 2. Hyper parameter selection and training
 
-All layers use random states as initial values with a mean of zero and standard deviation of 0.1. The following hyperparameters were used to train the model that has been used in the following sections. The variable `epochs` defines the number of training epochs. The `batch_size` defines how many inputs are used between every update of the internal parameters. The learning rate `rate` is slightly smaller than the standard `AdamsOptimizer` setting to allow a smoother progression. All layers with dropout keep 70 percent of their connections as defined by `keep_prob`. The parameter `beta` is used as factor during regularization of the convolutional weights in the loss function.
+All layers use random states as initial values with a mean of zero and standard deviation of 0.1. The following hyperparameters were used to train the model that has been used in the following sections. The variable `epochs` defines the number of training epochs. The `batch_size` defines how many inputs are used between every update of the internal parameters. The learning rate `rate` is slightly smaller than the standard `AdamsOptimizer` setting to allow a smoother progression. All layers with *dropout* keep 70 percent of their connections as defined by `keep_prob`. The parameter `beta` is used as factor during regularization of the convolutional weights in the loss function.
 
 ```
 # define constants
@@ -153,11 +157,11 @@ The accuracy on the test data set is 94.3 percent.
 
 ### 1. Test images from the web
 
-To further test whether the model is good in not only predicting the images on which it has been trained, 6 images of Grman traffic signs have been found using Google's image search.
+To further test whether the model is good in not only predicting the images on which it has been trained, 6 images of German traffic signs have been found using [Google's image search](https://images.google.com/).
 
 ![alt text][image6]
 
-The model accurately predicts each of these traffic signs as shown in the following pictures. The top 5 predictions are shown using the average image for each of these labels. The bar charts show the softmax probability for each prediction.
+The model accurately predicts each of these traffic signs as shown in the following picture sequence. The top 5 predictions are shown using the average image for each of these labels. The bar charts show the *softmax* probability for each prediction.
 
 ![alt text][image7]![alt text][image8]
 ![alt text][image9]![alt text][image10]
@@ -166,108 +170,22 @@ The model accurately predicts each of these traffic signs as shown in the follow
 ![alt text][image15]![alt text][image16]
 ![alt text][image17]![alt text][image18]
 
+### 2. Exploring the inside of the model
 
+In order to visualize the weights in the convolutional layers of my neural network, I evaluated the model with the average *Stop* sign image from the training data set.
 
+![alt text][image19]
 
-As a last step, I normalized the image data because ...
+The first convolutional layer uses 3 color channels as input. Therefore, I chose to visualize the weights of each feature map using an *RGB* color image. The 18 feature maps of this layer clearly show that they are distinct by having different average color tones. The images on the left are more green-ish while the ones on the right show more blue and red color tones. Also, the area in which they emphasize on specific color inputs is very different. Especially the images in the center seem to emphasize on diagonal directions.
 
-I decided to generate additional data because ... 
+![alt text][image20]
 
-To add more data to the the data set, I used the following techniques because ... 
+The second convolutional layer has 54 feature maps for each of the 18 input channels. The following picture only shows the first 250 feature maps as grayscale images (a little more than 25 percent of all feature maps in this layer). Due to the larger size of the filter in the second layer, some of the festures are very detailed while others focus on more general patterns.
 
-Here is an example of an original image and an augmented image:
+![alt text][image21]
 
-![alt text][image3]
+The third and final convolutional layer has 128 feature maps for each of the 54 input channels. The following picture only shows the first 250 feature maps as grayscale images (less than 4 percent of all feature maps in this layer). The filter size is again smaller and hence the individual features in these feature maps are coarser.
 
-The difference between the original data set and the augmented data set is the following ... 
-
-
-#### 2. Describe what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
-
-My final model consisted of the following layers:
-
-| Layer         		|     Description	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| Input         		| 32x32x3 RGB image   							| 
-| Convolution 3x3     	| 1x1 stride, same padding, outputs 32x32x64 	|
-| RELU					|												|
-| Max pooling	      	| 2x2 stride,  outputs 16x16x64 				|
-| Convolution 3x3	    | etc.      									|
-| Fully connected		| etc.        									|
-| Softmax				| etc.        									|
-|						|												|
-|						|												|
- 
-
-
-#### 3. Describe how you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
-
-To train the model, I used an ....
-
-#### 4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
-
-My final model results were:
-* training set accuracy of ?
-* validation set accuracy of ? 
-* test set accuracy of ?
-
-If an iterative approach was chosen:
-* What was the first architecture that was tried and why was it chosen?
-* What were some problems with the initial architecture?
-* How was the architecture adjusted and why was it adjusted? Typical adjustments could include choosing a different model architecture, adding or taking away layers (pooling, dropout, convolution, etc), using an activation function or changing the activation function. One common justification for adjusting an architecture would be due to overfitting or underfitting. A high accuracy on the training set but low accuracy on the validation set indicates over fitting; a low accuracy on both sets indicates under fitting.
-* Which parameters were tuned? How were they adjusted and why?
-* What are some of the important design choices and why were they chosen? For example, why might a convolution layer work well with this problem? How might a dropout layer help with creating a successful model?
-
-If a well known architecture was chosen:
-* What architecture was chosen?
-* Why did you believe it would be relevant to the traffic sign application?
-* How does the final model's accuracy on the training, validation and test set provide evidence that the model is working well?
- 
-
-### Test a Model on New Images
-
-#### 1. Choose five German traffic signs found on the web and provide them in the report. For each image, discuss what quality or qualities might be difficult to classify.
-
-Here are five German traffic signs that I found on the web:
-
-![alt text][image4] ![alt text][image5] ![alt text][image6] 
-![alt text][image7] ![alt text][image8]
-
-The first image might be difficult to classify because ...
-
-#### 2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
-
-Here are the results of the prediction:
-
-| Image			        |     Prediction	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| Stop Sign      		| Stop sign   									| 
-| U-turn     			| U-turn 										|
-| Yield					| Yield											|
-| 100 km/h	      		| Bumpy Road					 				|
-| Slippery Road			| Slippery Road      							|
-
-
-The model was able to correctly guess 4 of the 5 traffic signs, which gives an accuracy of 80%. This compares favorably to the accuracy on the test set of ...
-
-#### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
-
-The code for making predictions on my final model is located in the 11th cell of the Ipython notebook.
-
-For the first image, the model is relatively sure that this is a stop sign (probability of 0.6), and the image does contain a stop sign. The top five soft max probabilities were
-
-| Probability         	|     Prediction	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| .60         			| Stop sign   									| 
-| .20     				| U-turn 										|
-| .05					| Yield											|
-| .04	      			| Bumpy Road					 				|
-| .01				    | Slippery Road      							|
-
-
-For the second image ... 
-
-### (Optional) Visualizing the Neural Network (See Step 4 of the Ipython notebook for more details)
-#### 1. Discuss the visual output of your trained network's feature maps. What characteristics did the neural network use to make classifications?
+![alt text][image22]
 
 

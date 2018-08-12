@@ -26,12 +26,12 @@ Everything has been programmed in Python 3 using Tensorflow.
 
 [//]: # (Image References)
 
-[image1]: "./docu_images/01_01_Random_Images.jpg"
-[image2]: "./docu_images/01_02_Single_Random_Label.jpg"
-[image3]: "./docu_images/01_03_High_Contrast.jpg"
-[image4]: "./docu_images/01_04_Average_Images.jpg"
-[image5]: "./docu_images/01_01_Random_Images.jpg"
-[image6]: "./docu_images/01_01_Random_Images.jpg"
+[image1]: docu_images/01_01_Random_Images.jpg
+[image2]: docu_images/01_02_Single_Random_Label.jpg
+[image3]: docu_images/01_03_High_Contrast.jpg
+[image4]: docu_images/01_04_Average_Images.jpg
+[image5]: docu_images/01_01_Random_Images.jpg
+[image6]: docu_images/01_01_Random_Images.jpg
 
 ---
 
@@ -54,7 +54,6 @@ In order to plot a set of traffic sign images with labels I created the function
 * 30 random images
 
 ![alt text][image1]
-![Kiku](./docu_images/01_01_Random_Images.jpg)
 
 * 30 random images of the same random label
 

@@ -54,6 +54,7 @@ In order to plot a set of traffic sign images with labels I created the function
 * 30 random images
 
 ![alt text][image1]
+![Kiku](./docu_images/01_01_Random_Images.jpg)
 
 * 30 random images of the same random label
 

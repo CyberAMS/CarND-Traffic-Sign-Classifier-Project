@@ -32,6 +32,18 @@ Everything has been programmed in Python 3 using Tensorflow.
 [image4]: docu_images/01_04_Average_Images.png
 [image5]: docu_images/02_01_Epochs.png
 [image6]: docu_images/02_02_Web_Images.png
+[image7]: docu_images/03_01_Image_1.png
+[image8]: docu_images/03_02_Plot_1.png
+[image9]: docu_images/03_03_Image_2.png
+[image10]: docu_images/03_04_Plot_2.png
+[image11]: docu_images/03_05_Image_3.png
+[image12]: docu_images/03_06_Plot_3.png
+[image13]: docu_images/03_07_Image_4.png
+[image14]: docu_images/03_08_Plot_4.png
+[image15]: docu_images/03_09_Image_5.png
+[image16]: docu_images/03_10_Plot_5.png
+[image17]: docu_images/03_11_Image_6.png
+[image18]: docu_images/03_12_Plot_6.png
 
 ---
 
@@ -137,8 +149,23 @@ The training progress is shown in the following diagram. After 50 epochs the mod
 
 The accuracy on the test data set is 94.3 percent.
 
+## 3. Predictions with the trained model
+
+### 1. Test images from the web
+
+To further test whether the model is good in not only predicting the images on which it has been trained, 6 images of Grman traffic signs have been found using Google's image search.
+
 ![alt text][image6]
-![alt text][image7]
+
+The model accurately predicts each of these traffic signs as shown in the following pictures. The top 5 predictions are shown using the average image for each of these labels. The bar charts show the softmax probability for each prediction.
+
+![alt text][image7]![alt text][image8]
+![alt text][image9]![alt text][image10]
+![alt text][image11]![alt text][image12]
+![alt text][image13]![alt text][image14]
+![alt text][image15]![alt text][image16]
+![alt text][image17]![alt text][image18]
+
 
 
 

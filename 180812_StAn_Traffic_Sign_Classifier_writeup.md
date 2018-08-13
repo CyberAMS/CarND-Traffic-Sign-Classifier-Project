@@ -64,6 +64,7 @@ Everything has been programmed in Python 3 using Tensorflow.
 [image36]: docu_images/06_02_All_Detect.png
 [image37]: docu_images/06_03_Top_Detect.png
 [image38]: docu_images/06_04_Prected_Images.png
+
 ---
 
 ## 1. Data set preparation

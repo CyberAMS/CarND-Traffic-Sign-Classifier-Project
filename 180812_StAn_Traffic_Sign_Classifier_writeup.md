@@ -173,11 +173,13 @@ The accuracy on the test data set is 94.3 percent.
 
 ### 1. Test images from the web
 
-To further test whether the model is good in not only predicting the images on which it has been trained, 6 images of German traffic signs have been found using [Google's image search](https://images.google.com/).
+To further test whether the model is good in not only predicting the images on which it has been trained, 6 images of German traffic signs have been found using [Google's image search](https://images.google.com/). I created a function `load_images` to load such a sequence of images.
 
 ![alt text][image6]
 
-The model accurately predicts each of these traffic signs as shown in the following picture sequence. The top 5 predictions are shown using the average image for each of these labels. The bar charts show the *softmax* probability for each prediction.
+The function `predict_image_labels` uses the previously described model to predict the labels of these untrained images. The function `check_accuracy` provides a quick check whether the untrained images are accurately predicted. A more thorough check is defined by the function `evaluate_top_k` which is used in the following.
+
+The model accurately predicts each of these untrained traffic signs as shown in the following picture sequence. The top 5 predictions are shown using the average image for each of these labels. The bar charts show the *softmax* probability for each prediction.
 
 ![alt text][image7]![alt text][image8]
 ![alt text][image9]![alt text][image10]
@@ -188,7 +190,7 @@ The model accurately predicts each of these traffic signs as shown in the follow
 
 ### 2. Exploring the inside of the model
 
-In order to visualize the weights in the convolutional layers of my neural network, I evaluated the model with the average *Stop* sign image from the training data set.
+In order to visualize the weights in the convolutional layers of my neural network, I evaluated the model with the average *Stop* sign image from the training data set using the function `outputFeatureMap`.
 
 ![alt text][image19]
 
@@ -234,7 +236,7 @@ Well, and here is the "Right Turn" sign that is really for away from anything in
 
 ### 4. Searching within larger pictures
 
-In real life we probably don't have the luxury of predicting mug shots of traffic signs. We have to find them in a larger image. And now they can be larger or smaller. I created a little algorithm that scans a larger image with different scaling levels and tries to find traffic signs of any size in any position.
+In real life we probably don't have the luxury of predicting mug shots of traffic signs. We have to find them in a larger image. And now they can be larger or smaller. I created a little algorithm in the function `check_large_images` that scans a larger image with different scaling levels and tries to find traffic signs of any size in any position.
 
 The below pictures show the original image, a picture in which I marked all areas in which potential traffic signs have been predicted and finally a picture in which only the top predictions have been marked. The predicted areas have a white outline for the most likely predictions and a black outline for the least likely predictions. As expected the most likely predictions for traffic signs are in the area of the actual traffic sign in the larger image.
 
@@ -246,4 +248,10 @@ But which specific traffic signs does the model predict? It accurately lists the
 
 ## 4. Discussion
 
-I was 
+Most images used to test my model are nice frontal shots of sunny day traffic signs. Looking at some of the results makes it very obvious that traffic signs that are covered by obstacles or snow or images taken at night during rain would challenge my model extremely.
+
+At the same time I tried to not overfit my model and have fun evaluating its predictions on formerly unknown images. I could have used more input data to train the model by e.g. augmenting the training data set. While rotational and perspective transformations definitely would improve its predictability, I would stay away from darkening or blurring the existing training data set for augmentation as this could also lead to overfitting - unless I had access to a much larger training data set and overfitting would become less of an issue.
+
+I am looking forward to learning higher level neural network programming packages like [Keras](https://keras.io/) which will make it easier to define the network architecture and experiment with different architectures in less time - my own attempt to create something like this with minimum effort failed.
+
+In summary I was surprised to see with which little effort (although much knowledge and fast hardware) one can detect traffic signs in images.

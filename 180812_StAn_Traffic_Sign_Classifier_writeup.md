@@ -230,7 +230,7 @@ And it gets better: The *Right Turn Ahead* signs are pretty close besides being 
 
 ![alt text][image31]![alt text][image32]
 
-Well, and here is the "Right Turn" sign that is really for away from anything in the training data set. Similar to the first sign in this fun sequence, the model probably focuses on the vertical black line in the middle and predicts a *General Caution* sign. Well, it's always good to be cautious with your predictions - or not?
+Well, and here is the *Right Turn* sign that is really for away from anything in the training data set. Similar to the first sign in this fun sequence, the model probably focuses on the vertical black line in the middle and predicts a *General Caution* sign. Well, it's always good to be cautious with your predictions - or not?
 
 ![alt text][image33]![alt text][image34]
 

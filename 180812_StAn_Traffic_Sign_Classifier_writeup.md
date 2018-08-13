@@ -198,7 +198,7 @@ The first convolutional layer uses 3 color channels as input. Therefore, I chose
 
 ![alt text][image20]
 
-The second convolutional layer has 54 feature maps for each of the 18 input channels. The following picture only shows the first 250 feature maps as grayscale images (a little more than 25 percent of all feature maps in this layer). Due to the larger size of the filter in the second layer, some of the festures are very detailed while others focus on more general patterns.
+The second convolutional layer has 54 feature maps for each of the 18 input channels. The following picture only shows the first 250 feature maps as grayscale images (a little more than 25 percent of all feature maps in this layer). Due to the larger size of the filter in the second layer, some of the features are very detailed while others focus on more general patterns.
 
 ![alt text][image21]
 

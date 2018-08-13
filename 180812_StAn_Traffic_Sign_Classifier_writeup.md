@@ -48,7 +48,22 @@ Everything has been programmed in Python 3 using Tensorflow.
 [image20]: docu_images/04_02_Layer_1.png
 [image21]: docu_images/04_03_Layer_2.png
 [image22]: docu_images/04_04_Layer_3.png
-
+[image23]: docu_images/05_01_Image_1.png
+[image24]: docu_images/05_02_Plot_1.png
+[image25]: docu_images/05_03_Image_2.png
+[image26]: docu_images/05_04_Plot_2.png
+[image27]: docu_images/05_05_Image_3.png
+[image28]: docu_images/05_06_Plot_3.png
+[image29]: docu_images/05_07_Image_4.png
+[image30]: docu_images/05_08_Plot_4.png
+[image31]: docu_images/05_09_Image_5.png
+[image32]: docu_images/05_10_Plot_5.png
+[image33]: docu_images/05_11_Image_6.png
+[image34]: docu_images/05_12_Plot_6.png
+[image35]: docu_images/06_01_Large.png
+[image36]: docu_images/06_02_All_Detect.png
+[image37]: docu_images/06_03_Top_Detect.png
+[image38]: docu_images/06_04_Prected_Images.png
 ---
 
 ## 1. Data set preparation
@@ -188,4 +203,46 @@ The third and final convolutional layer has 128 feature maps for each of the 54 
 
 ![alt text][image22]
 
+### 3. Fun with unknown traffic signs
 
+The real fun with convolutional neural networks starts when we use them for something that they have not been trained for. What would they predict when they see US instead of German traffic signs? Let's try it!
+
+For the *Intersection* sign the model probably focuses on the large vertical black line in the center and thinks it might be a *General Caution* sign.
+
+![alt text][image23]![alt text][image24]
+
+The *Pedestrian Crossing* sign clearly puts the model out of its comfort zone and it cannot predict anything with a high probability.
+
+![alt text][image25]![alt text][image26]
+
+I think it is facinating that my model accurately predicts a *Yellow Stop* sign to be a *Stop* sign with pretty high probability although my model also takes into account the color.
+
+![alt text][image27]![alt text][image28]
+
+Now here it is: Who would have guessed that the US *Traffic Light* sign is close to the German *Traffic Light* sign? Well, I didn't and so does the model. It doesn't even consider it as part of the top 5 predictions.
+
+![alt text][image29]![alt text][image30]
+
+And it gets better: The *Right Turn Ahead* signs are pretty close besides being edgy versus round and the model nails it.
+
+![alt text][image31]![alt text][image32]
+
+Well, and here is the "Right Turn" sign that is really for away from anything in the training data set. Similar to the first sign in this fun sequence, the model probably focuses on the vertical black line in the middle and predicts a *General Caution* sign. Well, it's always good to be cautious with your predictions - or not?
+
+![alt text][image33]![alt text][image34]
+
+### 4. Searching within larger pictures
+
+In real life we probably don't have the luxury of predicting mug shots of traffic signs. We have to find them in a larger image. And now they can be larger or smaller. I created a little algorithm that scans a larger image with different scaling levels and tries to find traffic signs of any size in any position.
+
+The below pictures show the original image, a picture in which I marked all areas in which potential traffic signs have been predicted and finally a picture in which only the top predictions have been marked. The predicted areas have a white outline for the most likely predictions and a black outline for the least likely predictions. As expected the most likely predictions for traffic signs are in the area of the actual traffic sign in the larger image.
+
+![alt text][image35]![alt text][image36]![alt text][image37]
+
+But which specific traffic signs does the model predict? It accurately lists the *Yield* and *Roundabout Mandatory* signs. Somehow it sees things that I don't see though and gives the *Priority Road* sign the highest probability to be in this larger image.
+
+![alt text][image38]
+
+## 4. Discussion
+
+I was 

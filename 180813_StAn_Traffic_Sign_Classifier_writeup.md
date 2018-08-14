@@ -84,7 +84,7 @@ Number of classes = 43
 
 The following diagram shows the amount of training, validation and testing images per traffic sign label in the provided data set.
 
-![alt text][image1]
+![alt text][image39]
 
 The numerics of neural networks work best if the mean of the input data is zero. I used the following equations to normalize all input data to be between -1 and 1.
 

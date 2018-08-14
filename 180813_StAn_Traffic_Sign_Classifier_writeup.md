@@ -220,7 +220,7 @@ The *Keep right* traffic sign is very distinctive and hence gets detected very w
 
 ![alt text][image13]![alt text][image14]
 
-The *No passing* traffic sign test image from the web is angled in a way that the red car on the left nearly looks like a truck pictogram from a *No passing for vehicles over 3.5 metric tons* traffic sign. Indeed this is the models second best guess.
+The *No passing* traffic sign test image from the web is angled in a way that the red car on the left nearly looks like a truck pictogram from a *No passing for vehicles over 3.5 metric tons* traffic sign. Indeed this is the model's second best guess.
 
 ![alt text][image15]![alt text][image16]
 

@@ -64,6 +64,7 @@ Everything has been programmed in Python 3 using Tensorflow.
 [image36]: docu_images/06_02_All_Detect.png
 [image37]: docu_images/06_03_Top_Detect.png
 [image38]: docu_images/06_04_Predicted_Images.png
+[image39]: docu_images/00_01_Histogram.png
 
 ---
 
@@ -80,6 +81,10 @@ Number of testing examples = 12630
 Image data shape = (32, 32, 3)
 Number of classes = 43
 ```
+
+The following diagram shows the amount of training, validation and testing images per traffic sign label in the provided data set.
+
+![alt text][image1]
 
 The numerics of neural networks work best if the mean of the input data is zero. I used the following equations to normalize all input data to be between -1 and 1.
 
@@ -275,11 +280,11 @@ Well, and here is the *Right Turn* sign that is really for away from anything in
 
 In real life we probably don't have the luxury of predicting mug shots of traffic signs. We have to find them in a larger image. And now they can be larger or smaller. I created a little algorithm in the function `check_large_images` that scans a larger image with different scaling levels and tries to find traffic signs of any size in any position.
 
-The below pictures show the original image, a picture in which I marked all areas in which potential traffic signs have been predicted and finally a picture in which only the top predictions have been marked. The predicted areas have a white outline for the most likely predictions and a black outline for the least likely predictions. As expected the most likely predictions for traffic signs are in the area of the actual traffic sign in the larger image.
+The below pictures show the original image, a picture in which I marked all areas in which potential traffic signs have been predicted and finally a picture in which only the top predictions have been marked. The predicted areas have a yellow outline for the most likely prediction and a more and more black outline for the lesser likely predictions. As expected the most likely predictions for traffic signs are in the area of the actual traffic signs in the larger image.
 
 ![alt text][image35]![alt text][image36]![alt text][image37]
 
-But which specific traffic signs does the model predict? It accurately lists the *Yield* and *Roundabout Mandatory* signs. Somehow it sees things that I don't see though and gives the *Priority Road* sign the highest probability to be in this larger image.
+But which specific traffic signs does the model predict? It accurately lists the *Yield* and *Roundabout Mandatory* signs. Somehow it gets confused with the *Roundabout Mandatory* sign and detects many possible individual directions with even higher probability.
 
 ![alt text][image38]
 

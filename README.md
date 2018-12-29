@@ -232,7 +232,7 @@ The test images from the web have all been predicted accurately which exceeds th
 
 ### 2. Exploring the inside of the model
 
-A more in-depth study looking into the weights and outputs of each layer with different traffic signs as input is shown in the latest [HTML report](http://profile.cyberams.de/docs/181111_StAn_Traffic_Sign_Classifier.html).
+A more in-depth study looking into the weights and outputs of each layer with different traffic signs as input is shown in the latest <a href="http://profile.cyberams.de/docs/181111_StAn_Traffic_Sign_Classifier.html" target="_blank">HTML report</a>.
 
 The first convolutional layer uses 3 color channels as input. Therefore, I chose to visualize the weights of each feature map using an *RGB* color image. The 18 feature maps of this layer clearly show that they are distinct by having different average color tones. The images on the left are more green-ish while the ones on the right show more blue and red color tones. Also, the area in which they emphasize on specific color inputs is very different. Especially the images in the center seem to emphasize on diagonal directions.
 
@@ -286,7 +286,7 @@ But which specific traffic signs does the model predict? It accurately lists the
 
 ![alt text][image38]
 
-More examples are shown in the latest [HTML report](http://profile.cyberams.de/docs/181111_StAn_Traffic_Sign_Classifier.html).
+More examples are shown in the latest <a href="http://profile.cyberams.de/docs/181111_StAn_Traffic_Sign_Classifier.html" target="_blank">HTML report</a>.
 
 ## 4. Discussion
 
